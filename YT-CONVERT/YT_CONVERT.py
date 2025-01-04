@@ -15,7 +15,7 @@ class YouTubeDownloader:
         self.root.configure(bg="gray25")
         self.download_thread = None
         self.ydl = None
-
+        self.root.resizable(False, False) 
         self.create_widgets()
 
     def create_widgets(self):
