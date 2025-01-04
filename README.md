@@ -4,6 +4,15 @@ A user-friendly Python application to convert and download YouTube videos or aud
 
 Purpose is to allow users to download video/audio off of YouTube with ease.
 
+## Table of Contents
+- 📋 [Features](#-features)
+- ❓ [How to Use (Installation)](#-how-to-use)
+- 📦 [Packaging Instructions](#-packaging-instructions)
+- ⚠️ [Warnings](#%EF%B8%8F-warnings)
+- 📷 [Preview](#-preview)
+- 🔗 [Links & Statistics](#-links--statistics)
+- 📜 [License](#-license)
+
 ---
 
 ## 📋 Features
@@ -40,16 +49,17 @@ __TERMINATE__ - The terminate button kills the program, stopping the download if
 
 ## ❓ How to Use
 
-### Method 1: Downloading the Precompiled Executable via Installer
+### Method 1: Downloading the Precompiled Executable (Application) via Installer
 1. **Download via the Installer (RECOMMENDED)**  
-   Visit the [Latest Release](https://github.com/Justagwas/YT-CONVERT/releases/latest) and download `YT_CONVERT_Setup.exe`
-
+   Visit the [Latest Release](https://github.com/Justagwas/YT-CONVERT/releases/latest) and download `YT_CONVERT_Setup.exe`,  
+    or click the button below ↓.
+   
    [![Download YT_CONVERT_Setup.exe](https://img.shields.io/badge/▼%20Download▼-YT_CONVERT_Setup.exe-blue?style=for-the-badge)](https://github.com/Justagwas/YT-CONVERT/releases/latest/download/YT_CONVERT_Setup.exe)
 
-2. **Run the Installer**  
+3. **Run the Installer**  
    Simply double-click the downloaded file to install the app.  
 
-3. **Usage**  
+4. **Usage**  
   3.1 **Launch the APP**  
      Launch the newly downloaded application.
    
