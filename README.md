@@ -12,7 +12,7 @@ Purpose is to allow users to download video/audio off of YouTube with ease.
 - 📷 [Preview](#-preview)
 - 🔗 [Links & Statistics](#-links--statistics)
 - 📜 [License](#-license)
-
+- 🛑 [Downloaded My Software and Got a Warning?](#-downloaded-my-software-and-got-a-warning) 🛑
 ---
 
 ## 📋 Features
@@ -39,7 +39,7 @@ __TERMINATE__ - The terminate button kills the program, stopping the download if
 
 **VIDEO** - Will download the best Video-ONLY format.  
 
-**VIDE+AUDIO** - Will download the best VIDEO+AUDIO format, **MERGING THEM**.  
+**VIDE+AUDIO** - Will download the best VIDEO+AUDIO format and **MERGE THEM** into one.  
 
 **MP4** - Will download the best Video-ONLY format AND Audio-ONLY format and merge them into MP4, **MP4 includes both VIDEO AND AUDIO**.  
 
@@ -136,6 +136,8 @@ Follow these steps to package/build the Python script into an executable using *
 
 ## ⚠️ Warnings
 
+NOTE that all downloaded files from the application (YouTube Video/Audio files) are downloaded to the Downloads folder.
+
 RELEVANT IF YOU USED THE `YT_CONVERT_Setup.exe` TO INSTALL THE PROGRAM.
 
 - **Uninstalling**
@@ -157,8 +159,6 @@ If you are unable to find the program within Windows Settings, follow this guide
   5. Within the folder find a file named `unins000.exe`.
   6. Double click that file and follow on screen instructions to uninstall the application.
 
-NOTE that all downloaded files from the application (YouTube Video/Audio files) are downloaded to the Downloads folder.
-
 NOTE (2) that this application stores NO DATA, upon deletion it is completely removed from your system, it is safe to use and downloads ONLY whatever you want it to.
 
 ---
@@ -179,6 +179,22 @@ NOTE (2) that this application stores NO DATA, upon deletion it is completely re
 [![Last Commit](https://img.shields.io/github/last-commit/Justagwas/YT-CONVERT?label=🕒%20Last%20Commit&style=for-the-badge)](https://github.com/Justagwas/YT-CONVERT/commits)  
 
 ---
+
+## 🛑 **Downloaded My Software and Got a Warning?**  
+
+Don’t worry! Windows and other operating systems sometimes flag my software simply because it’s not yet widely recognized. Rest assured, **all my software is open source** and completely transparent. You can review the code yourself and decide if you trust it, although it is safe. 
+
+### 🛠 **What You Can Do:**  
+1. Double-check if your download is from the (official repository)[https://github.com/Justagwas/YT-CONVERT].
+2. If Windows shows a warning, click **More Info** > **Run Anyway** to bypass it.  
+3. Refer to the ⚠️ [Warnings](#%EF%B8%8F-warnings) section in this repository for any potential risks. If none are listed, there’s nothing to worry about.  
+
+---
+
+## ❓ **Got Any Other Questions?**  
+Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and details about my projects, safety, and usage guidelines.  
+
+--- 
 
 ## 📜 License
 
