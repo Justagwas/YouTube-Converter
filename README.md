@@ -200,8 +200,9 @@ Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and det
 
 ### Version 1.1.0
 
-- [ ] Dropdown selection for VIDEO/AUDIO Formats.
-- [ ] UI Spacing improvement.
+- [x] Dropdown selection for VIDEO/AUDIO Formats.
+- [x] UI Spacing improvement.
+- [ ] Packaged for PR.
 
 ### Version 1.2.0
 
