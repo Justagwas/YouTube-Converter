@@ -6,6 +6,8 @@ from yt_dlp import YoutubeDL
 import threading
 import os
 import sys
+import re
+from urllib.parse import urlparse, parse_qs, urlunparse
 
 class YouTubeDownloader:
     def __init__(self, root):
@@ -33,7 +35,7 @@ class YouTubeDownloader:
         )
         self.paste_button.pack(side=tk.LEFT, padx=5)
 
-        self.format_var = tk.StringVar(value="mp4")
+        self.format_var = tk.StringVar(value="Select Format")
         self.quality_var = tk.StringVar(value="Select Quality")
 
         self.format_frame = tk.Frame(self.root, bg="gray25")
@@ -69,14 +71,34 @@ class YouTubeDownloader:
         except tk.TclError:
             messagebox.showerror("Error", "No URL found in clipboard")
 
+    def sanitize_filename(self, name):
+        return re.sub(r'[<>:"/\\|?*]', '', name)
+
+    def sanitize_url(self, url):
+        parsed_url = urlparse(url)
+        if parsed_url.netloc not in ["www.youtube.com", "youtube.com", "youtu.be"]:
+            return None
+        query = parse_qs(parsed_url.query)
+        clean_query = {k: query[k] for k in query if k in ["v", "list"]}
+        sanitized_url = urlunparse(parsed_url._replace(query="&".join(f"{k}={v[0]}" for k, v in clean_query.items())))
+        return sanitized_url
+
     def start_download(self):
         url = self.url_entry.get()
         if not url:
             messagebox.showerror("Error", "Please enter a YouTube URL")
             return
 
+        sanitized_url = self.sanitize_url(url)
+        if not sanitized_url:
+            messagebox.showerror("Error", "Please enter a valid YouTube URL")
+            return
+
         format_choice = self.format_var.get().split()[0]
-        self.download_thread = threading.Thread(target=self.download_video, args=(url, format_choice))
+        if format_choice == "Select":
+            messagebox.showerror("Error", "Please select a format")
+            return
+        self.download_thread = threading.Thread(target=self.download_video, args=(sanitized_url, format_choice))
         self.download_thread.start()
 
     def abort_download(self):
@@ -114,7 +136,9 @@ class YouTubeDownloader:
         with YoutubeDL(ydl_opts) as ydl:
             self.ydl = ydl
             try:
-                if any(f.endswith(format_choice) for f in existing_files):
+                info_dict = ydl.extract_info(url, download=False)
+                sanitized_title = self.sanitize_filename(info_dict['title'])
+                if any(f.startswith(sanitized_title) and f.endswith(format_choice) for f in existing_files):
                     self.status_label.config(text="File already exists, using existing file...")
                 else:
                     ydl.download([url])
