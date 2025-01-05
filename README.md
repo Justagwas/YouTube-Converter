@@ -202,6 +202,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and det
 
 - [x] Dropdown selection for VIDEO/AUDIO Formats.
 - [x] UI Spacing improvement.
+- [ ] Check for YouTube URL.
 - [ ] Packaged for PR.
 
 ### Version 1.2.0
