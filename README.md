@@ -196,6 +196,19 @@ Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and det
 
 --- 
 
+## 🚧 TODO List
+
+### Version 1.1.0
+
+- [ ] Dropdown selection for VIDEO/AUDIO Formats.
+- [ ] UI Spacing improvement.
+
+### Version 1.2.0
+
+- [ ] Video Resolution Selection.
+
+---
+
 ## 📜 License
 
 [![License](https://img.shields.io/github/license/Justagwas/YT-CONVERT?label=📝%20License&style=for-the-badge)](LICENSE.txt)
