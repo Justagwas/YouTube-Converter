@@ -1,18 +1,20 @@
-# YouTube Convert (YT CONVERT)
+# YouTube Downloader/Converter (YT CONVERT)
 
 A user-friendly Python application to convert and download YouTube videos or audio directly from their URL.
 
 Purpose is to allow users to download video/audio off of YouTube with ease.
 
 ## Table of Contents
+
 - 📋 [Features](#-features)
 - ❓ [How to Use (Installation)](#-how-to-use)
 - 📦 [Packaging Instructions](#-packaging-instructions)
 - ⚠️ [Warnings](#%EF%B8%8F-warnings)
 - 📷 [Preview](#-preview)
 - 🔗 [Links & Statistics](#-links--statistics)
-- 📜 [License](#-license)
 - 🛑 [Downloaded My Software and Got a Warning?](#-downloaded-my-software-and-got-a-warning) 🛑
+- 🚧 [TODO List](#-todo-list)
+- 📜 [License](#-license)
 ---
 
 ## 📋 Features
@@ -200,9 +202,11 @@ Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and det
 
 ### Version 1.1.0
 
-- [x] Dropdown selection for VIDEO/AUDIO Formats.
-- [x] UI Spacing improvement.
-- [ ] Check for YouTube URL.
+- [x] Dropdown Selection for VIDEO/AUDIO Formats.
+- [x] UI Spacing Improvement.
+- [x] Check for YouTube URL.
+- [x] Sanitize YouTube URLs.
+- [x] Sanitize File Names.
 - [ ] Packaged for PR.
 
 ### Version 1.2.0
