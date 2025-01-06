@@ -1,5 +1,5 @@
 #Checkout my other projects! https://github.com/Justagwas
-#The OFFICIAL Repo of this is - https://github.com/Justagwas/YT-CONVERT
+#The OFFICIAL Repo of this is - https://github.com/Justagwas/YouTube-Converter
 import tkinter as tk
 from tkinter import messagebox
 from yt_dlp import YoutubeDL

@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['YT_CONVERT.py'],
+    ['YouTube_Converter.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='YT_CONVERT',
+    name='YouTube_Converter',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
