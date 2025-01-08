@@ -177,14 +177,14 @@ NOTE (2) that this application stores NO DATA, upon deletion it is completely re
 Don’t worry! Windows and other operating systems sometimes flag my software simply because it’s not yet widely recognized. Rest assured, **all my software is open source** and completely transparent. You can review the code yourself and decide if you trust it, although it is safe. 
 
 ### 🛠 **What You Can Do:**  
-1. Double-check if your download is from the (official repository)[https://github.com/Justagwas/YouTube-Converter].
+1. Double-check if your download is from the [official repository](https://github.com/Justagwas/YouTube-Converter).
 2. If Windows shows a warning, click **More Info** > **Run Anyway** to bypass it.  
 3. Refer to the ⚠️ [Warnings](#%EF%B8%8F-warnings) section in this repository for any potential risks. If none are listed, there’s nothing to worry about.  
 
 ---
 
 ## ❓ **Got Any Other Questions?**  
-Check out my [FAQ Page](https://www.justagwas.com/faqs) for more answers and details about my projects, safety, and usage guidelines.  
+Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and details about my projects, safety, and usage guidelines.  
 
 --- 
 

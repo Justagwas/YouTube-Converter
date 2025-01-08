@@ -12,7 +12,7 @@ from urllib.parse import urlparse, parse_qs, urlunparse
 class YouTubeDownloader:
     def __init__(self, root):
         self.root = root
-        self.root.title("YouTube Converter")
+        self.root.title("YouTube Converter SOURCE CODE/NOT OFFICIAL RELEASE")
         self.root.geometry("500x260")
         self.root.configure(bg="gray25")
         self.download_thread = None
