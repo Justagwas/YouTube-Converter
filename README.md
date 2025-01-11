@@ -205,6 +205,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 ### Version 2.1.0
 
 - [ ] Video Resolution Selection.
+- [ ] TopBar UI Coloring Changes.
 
 ---
 
