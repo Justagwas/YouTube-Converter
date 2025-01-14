@@ -46,7 +46,7 @@ __TERMINATE__ - The terminate button kills the program, stopping the download if
    Visit the [Latest Release](https://github.com/Justagwas/YouTube-Converter/releases/latest) and download `YouTube_Converter_Setup.exe`,  
     or click the button below ↓.
    
-   [![Download YT_CONVERT_Setup.exe](https://img.shields.io/badge/▼%20Download▼-YouTube_Converter_Setup.exe-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/releases/latest/download/YouTube_Converter_Setup.exe)
+   [![Download YouTube_Converter_Setup.exe](https://img.shields.io/badge/▼%20Download▼-YouTube_Converter_Setup.exe-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/releases/latest/download/YouTube_Converter_Setup.exe)
 
 3. **Run the Installer**  
    Simply double-click the downloaded file to install the app.  
