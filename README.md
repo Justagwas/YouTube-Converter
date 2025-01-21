@@ -197,6 +197,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 - [x] New MOV Format.
 - [x] 2.0.0 -> 3.0.0.
 - [x] Packaged for PR.
+- [x] Released. 
 
 ### Version 3.1.0
 
