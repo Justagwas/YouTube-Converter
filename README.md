@@ -189,23 +189,18 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 --- 
 
 ## 🚧 TODO List
-
-### Version 2.0.0
-
-- [x] Dropdown Selection for VIDEO/AUDIO Formats.
-- [x] UI Spacing Improvement.
-- [x] Check for YouTube URL.
-- [x] Sanitize YouTube URLs.
-- [x] Sanitize File Names.
-- [x] Packaged for PR.
-- [x] Name Change.
-- [x] 1.1.0 -> 2.0.0
-- [x] Released.
  
-### Version 2.1.0
+### Version 3.0.0
+
+- [x] TopBar UI Coloring Changes.
+- [x] Urgent Download Fix (Downloads threw errors).
+- [x] New MOV Format.
+- [x] 2.0.0 -> 3.0.0.
+- [x] Packaged for PR.
+
+### Version 3.1.0
 
 - [ ] Video Resolution Selection.
-- [ ] TopBar UI Coloring Changes.
 
 ---
 

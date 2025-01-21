@@ -8,6 +8,7 @@ import os
 import sys
 import re
 from urllib.parse import urlparse, parse_qs, urlunparse
+import ctypes as ct
 
 class YouTubeDownloader:
     def __init__(self, root):
@@ -18,6 +19,7 @@ class YouTubeDownloader:
         self.download_thread = None
         self.ydl = None
         self.root.resizable(False, False) 
+        self.set()
         self.create_widgets()
 
     def create_widgets(self):
@@ -42,10 +44,10 @@ class YouTubeDownloader:
         self.format_frame.pack(pady=5)
 
         self.format_options = [
-            "mp4 (Video&Audio)", "webm (Video)",
+            "mp4 (Video&Audio)", "mov (Video&Audio)", "webm (Video)",
             "mp3 (Audio)", "wav (Audio)"
         ]
-        self.quality_options = ["Select Quality"]  # Placeholder for v1.2.0
+        self.quality_options = ["Select Quality"]  # Placeholder for v3.1.0
 
         self.format_dropdown = tk.OptionMenu(self.format_frame, self.format_var, *self.format_options)
         self.format_dropdown.config(bg="gray25", fg="gray80", width=20)
@@ -98,6 +100,12 @@ class YouTubeDownloader:
         if format_choice == "Select":
             messagebox.showerror("Error", "Please select a format")
             return
+
+        if format_choice == "mov":
+            response = messagebox.askyesno("MOV Format Selected", "MOV format converts MP4 files. The MP4 file (IF EXISTS) will be deleted after conversion. Do you want to continue?")
+            if not response:
+                return
+
         self.download_thread = threading.Thread(target=self.download_video, args=(sanitized_url, format_choice))
         self.download_thread.start()
 
@@ -118,8 +126,8 @@ class YouTubeDownloader:
         existing_files = [f for f in os.listdir(os.path.expanduser('~/Downloads')) if os.path.isfile(os.path.join(os.path.expanduser('~/Downloads'), f))]
 
         ydl_opts = {
-            'format': f'bestvideo[ext={format_choice}]' if format_choice in ['webm']else
-                      f'bestvideo[ext={format_choice}]+bestaudio[ext=m4a]/best[ext={format_choice}]' if format_choice in ['mp4'] else
+            'format': f'bestvideo[ext={format_choice}]' if format_choice in ['webm'] else
+                      f'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]' if format_choice in ['mp4', 'mov'] else
                       'bestaudio[ext=m4a]/best',
             'outtmpl': output_template,
             'progress_hooks': [self.ydl_hook],
@@ -127,7 +135,10 @@ class YouTubeDownloader:
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': format_choice,
                 'preferredquality': '192',
-            }] if format_choice in ['mp3', 'wav'] else [],
+            }] if format_choice in ['mp3', 'wav'] else [{
+                'key': 'FFmpegVideoConvertor',
+                'preferedformat': 'mov'
+            }] if format_choice == 'mov' else [],
             'noplaylist': True,
             'abort_on_unavailable_fragments': True,
             'force_overwrites': True
@@ -161,6 +172,17 @@ class YouTubeDownloader:
 
         elif d['status'] == 'finished':
             self.status_label.config(text="Download finished! Converting...")
+
+    def set(self):
+        self.root.update()
+        DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+        set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
+        get_parent = ct.windll.user32.GetParent
+        hwnd = get_parent(self.root.winfo_id())
+        rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
+        value = 2
+        value = ct.c_int(value)
+        set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
 
 if __name__ == "__main__":
     root = tk.Tk()
