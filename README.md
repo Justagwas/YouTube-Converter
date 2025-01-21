@@ -72,7 +72,7 @@ Using the installer is essential as it automatically adds the application to the
 1. **Download**  
    Clone or download the repository as a ZIP file from the latest release:
    
-   [![Download Latest Release YouTube_Converter.zip](https://img.shields.io/badge/▼%20Download_Latest_Release%20▼-Source_Code.zip%20-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/archive/refs/tags/v2.0.0.zip)
+   [![Download Latest Release YouTube_Converter.zip](https://img.shields.io/badge/▼%20Download_Latest_Release%20▼-Source_Code.zip%20-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/archive/refs/tags/v3.0.0.zip)
 
 3. **Install Dependencies**  
    Ensure Python is installed on your system. Then, install the required libraries using the following command:
@@ -157,7 +157,7 @@ NOTE (2) that this application stores NO DATA, upon deletion it is completely re
 
 ## 📷 Preview
 
-![image](https://github.com/user-attachments/assets/2798a10e-b788-481a-b56b-c62eab22ae38)
+![image](https://github.com/user-attachments/assets/f0d4181c-5049-4380-89da-e330868957fb)
 
 ---
 
