@@ -190,18 +190,19 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 
 ## 🚧 TODO List
  
-### Version 3.0.0
+### Version 4.0.0
 
-- [x] TopBar UI Coloring Changes.
-- [x] Urgent Download Fix (Downloads threw errors).
-- [x] New MOV Format.
-- [x] 2.0.0 -> 3.0.0.
+- [x] Video Resolution Selection.
+- [x] Active Update Checker.
+- [x] Removed WEBM Support.
+- [x] UI Redesign.
+- [x] 3.0.0 -> 4.0.0.
 - [x] Packaged for PR.
-- [x] Released. 
+- [ ] Released.
 
-### Version 3.1.0
+### Version 4.x.x
 
-- [ ] Video Resolution Selection.
+- [ ] TBA.
 
 ---
 

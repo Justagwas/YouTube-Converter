@@ -9,17 +9,23 @@ import sys
 import re
 from urllib.parse import urlparse, parse_qs, urlunparse
 import ctypes as ct
+import requests
+from packaging.version import Version, InvalidVersion
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class YouTubeDownloader:
     def __init__(self, root):
         self.root = root
-        self.root.title("YouTube Converter SOURCE CODE/NOT OFFICIAL RELEASE")
+        self.root.title("YouTube Converter v4.0.0")
         self.root.geometry("500x260")
         self.root.configure(bg="gray25")
         self.download_thread = None
         self.ydl = None
         self.root.resizable(False, False) 
         self.set()
+        self.check_for_updates()
         self.create_widgets()
 
     def create_widgets(self):
@@ -44,10 +50,12 @@ class YouTubeDownloader:
         self.format_frame.pack(pady=5)
 
         self.format_options = [
-            "mp4 (Video&Audio)", "mov (Video&Audio)", "webm (Video)",
+            "mp4 (Video&Audio)", "mov (Video&Audio)",
             "mp3 (Audio)", "wav (Audio)"
         ]
-        self.quality_options = ["Select Quality"]  # Placeholder for v3.1.0
+        self.quality_options = [
+            "Select Quality", "144p", "240p", "360p", "480p", "720p", "1080p", "1440p", "2160p (4k)", "MAX"
+        ]
 
         self.format_dropdown = tk.OptionMenu(self.format_frame, self.format_var, *self.format_options)
         self.format_dropdown.config(bg="gray25", fg="gray80", width=20)
@@ -106,7 +114,12 @@ class YouTubeDownloader:
             if not response:
                 return
 
-        self.download_thread = threading.Thread(target=self.download_video, args=(sanitized_url, format_choice))
+        quality_choice = self.quality_var.get()
+        if quality_choice == "Select Quality":
+            messagebox.showerror("Error", "Please select a quality")
+            return
+
+        self.download_thread = threading.Thread(target=self.download_video, args=(sanitized_url, format_choice, quality_choice))
         self.download_thread.start()
 
     def abort_download(self):
@@ -119,16 +132,25 @@ class YouTubeDownloader:
         self.root.destroy()
         sys.exit()
 
-    def download_video(self, url, format_choice):
+    def download_video(self, url, format_choice, quality_choice):
         self.status_label.config(text="Starting download...")
-
         output_template = os.path.expanduser(f'~/Downloads/%(title)s.%(ext)s')
         existing_files = [f for f in os.listdir(os.path.expanduser('~/Downloads')) if os.path.isfile(os.path.join(os.path.expanduser('~/Downloads'), f))]
 
+        quality_format = {
+            "144p": "worstvideo[height<=144]+bestaudio/best[height<=144]",
+            "240p": "worstvideo[height<=240]+bestaudio/best[height<=240]",
+            "360p": "worstvideo[height<=360]+bestaudio/best[height<=360]",
+            "480p": "worstvideo[height<=480]+bestaudio/best[height<=480]",
+            "720p": "bestvideo[height<=720]+bestaudio/best[height<=720]",
+            "1080p": "bestvideo[height<=1080]+bestaudio/best[height<=1080]",
+            "1440p": "bestvideo[height<=1440]+bestaudio/best[height<=1440]",
+            "2160p (4k)": "bestvideo[height<=2160]+bestaudio/best[height<=2160]",
+            "MAX": "bestvideo+bestaudio/best"
+        }
+
         ydl_opts = {
-            'format': f'bestvideo[ext={format_choice}]' if format_choice in ['webm'] else
-                      f'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]' if format_choice in ['mp4', 'mov'] else
-                      'bestaudio[ext=m4a]/best',
+            'format': quality_format.get(quality_choice, 'bestvideo+bestaudio/best'),
             'outtmpl': output_template,
             'progress_hooks': [self.ydl_hook],
             'postprocessors': [{
@@ -143,7 +165,6 @@ class YouTubeDownloader:
             'abort_on_unavailable_fragments': True,
             'force_overwrites': True
         }
-
         with YoutubeDL(ydl_opts) as ydl:
             self.ydl = ydl
             try:
@@ -183,6 +204,34 @@ class YouTubeDownloader:
         value = 2
         value = ct.c_int(value)
         set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
+
+    def check_for_updates(self):
+        def update_check():
+            try:
+                current_version = "v4.0.0"
+                releases_url = "https://api.github.com/repos/Justagwas/YouTube-Converter/releases/latest"
+                response = requests.get(releases_url, timeout=10)
+                if response.status_code == 200:
+                    latest_release = response.json()
+                    latest_version = latest_release.get("tag_name", "")
+                    try:
+                        if Version(latest_version) > Version(current_version):
+                            download_url = "https://github.com/Justagwas/YouTube-Converter/releases/latest/download/YouTube_Converter_Setup.exe"
+                            prompt_message = (
+                                f"A newer version - {latest_version} is available!\n"
+                                f"Would you like to download it now?"
+                            )
+                            if messagebox.askyesno("Update Available", prompt_message):
+                                os.startfile(download_url)
+                    except InvalidVersion:
+                        logging.error(f"Invalid version format: {latest_version}")
+                else:
+                    logging.error(f"Failed to fetch release info: HTTP {response.status_code}")
+            except requests.RequestException as e:
+                logging.error(f"Network error during update check: {e}")
+                messagebox.showerror("Update Check Failed", "Unable to check for updates. Please try again later.")
+
+        threading.Thread(target=update_check, daemon=True).start()
 
 if __name__ == "__main__":
     root = tk.Tk()
