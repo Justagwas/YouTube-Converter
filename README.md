@@ -1,4 +1,4 @@
-# YouTube Downloader/Converter
+# YouTube Downloader/Converter v4.0.0
 
 A user-friendly Python application to convert and download YouTube videos or audio directly from their URL.
 
@@ -198,7 +198,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 - [x] UI Redesign.
 - [x] 3.0.0 -> 4.0.0.
 - [x] Packaged for PR.
-- [ ] Released.
+- [x] Released.
 
 ### Version 4.x.x
 
