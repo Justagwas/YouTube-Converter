@@ -205,6 +205,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 ### Version 4.x.x
 
 - [ ] Close Upon Update Confirmation.
+- [ ] Remove ffmpeg.exe Upon Uninstallation.
 
 ---
 
