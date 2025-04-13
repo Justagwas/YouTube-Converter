@@ -72,7 +72,7 @@ Using the installer is essential as it automatically adds the application to the
 1. **Download**  
    Clone or download the repository as a ZIP file from the latest release:
    
-   [![Download Latest Release YouTube_Converter.zip](https://img.shields.io/badge/▼%20Download_Latest_Release%20▼-Source_Code.zip%20-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/archive/refs/tags/v4.0.0.zip)
+   [![Download Latest Release YouTube_Converter.zip](https://img.shields.io/badge/▼%20Download_Latest_Release%20▼-Source_Code.zip%20-blue?style=for-the-badge)](https://github.com/Justagwas/YouTube-Converter/archive/refs/tags/v4.1.0.zip)
 
 3. **Install Dependencies**  
    Ensure Python is installed on your system. Then, install the required libraries using the following command:
@@ -189,16 +189,18 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 --- 
 
 ## 🚧 TODO List
- 
-### Version 4.0.0
 
-- [x] Video Resolution Selection.
-- [x] Active Update Checker.
-- [x] Removed WEBM Support.
-- [x] UI Redesign.
-- [x] 3.0.0 -> 4.0.0.
+### Version 4.1.0
+
+- [x] Implemented FFmpeg Dependency Checks.
+- [x] Optimised File Handling.
+- [x] Fixed File Formatting.
+- [x] Improved Error Handling.
+- [x] Automatic Icon Implementation.
+- [x] Admin Privilege Checks.
+- [x] 4.0.0 -> 4.1.0
 - [x] Packaged for PR.
-- [x] Released.
+- [ ] Released.
 
 ### Version 4.x.x
 

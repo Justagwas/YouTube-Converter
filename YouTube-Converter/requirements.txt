@@ -1,1 +1,4 @@
-yt_dlp==2025.1.15
+packaging==24.2
+pathvalidate==3.2.3
+Requests==2.32.3
+yt_dlp==2025.3.31
