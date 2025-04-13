@@ -204,7 +204,7 @@ Check out my [FAQ Page](https://www.justagwas.com/faq) for more answers and deta
 
 ### Version 4.x.x
 
-- [ ] TBA.
+- [ ] Close Upon Update Confirmation.
 
 ---
 
