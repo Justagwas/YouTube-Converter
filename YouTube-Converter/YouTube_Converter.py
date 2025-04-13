@@ -34,6 +34,16 @@ class YouTubeDownloader:
         self.create_widgets()
 
     def set_icon(self):
+        script_dir = os.path.dirname(os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__))
+        icon_path = os.path.join(script_dir, "icon.ico")
+
+        if os.path.exists(icon_path):
+            try:
+                self.root.iconbitmap(icon_path)
+                return
+            except Exception as e:
+                logging.error(f"Failed to set application icon: {e}")
+
         def is_admin():
             try:
                 return ct.windll.shell32.IsUserAnAdmin()
@@ -51,29 +61,23 @@ class YouTubeDownloader:
                 messagebox.showerror("Error", "Failed to request administrator privileges.")
                 return False
 
-        if messagebox.askyesno("Download Icon", "Would you like to download and install the application's icon?"):
+        if messagebox.askyesno("Download Icon", "The application's icon is missing. Would you like to download and install it?"):
             if not is_admin():
                 if not run_as_admin():
                     return
 
-            script_dir = os.path.dirname(os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__))
-            icon_path = os.path.join(script_dir, "icon.ico")
-            if not os.path.exists(icon_path):
-                try:
-                    icon_url = "https://github.com/Justagwas/YouTube-Converter/raw/master/YouTube-Converter/icon.ico"
-                    logging.info(f"Downloading icon from {icon_url} to {icon_path}")
-                    response = requests.get(icon_url, stream=True)
-                    with open(icon_path, "wb") as file:
-                        for chunk in response.iter_content(chunk_size=1024):
-                            if chunk:
-                                file.write(chunk)
-                except Exception as e:
-                    logging.error(f"Failed to download icon: {e}")
-                    return
             try:
+                icon_url = "https://github.com/Justagwas/YouTube-Converter/raw/master/YouTube-Converter/icon.ico"
+                logging.info(f"Downloading icon from {icon_url} to {icon_path}")
+                response = requests.get(icon_url, stream=True)
+                with open(icon_path, "wb") as file:
+                    for chunk in response.iter_content(chunk_size=1024):
+                        if chunk:
+                            file.write(chunk)
                 self.root.iconbitmap(icon_path)
             except Exception as e:
-                logging.error(f"Failed to set application icon: {e}")
+                logging.error(f"Failed to download or set application icon: {e}")
+                messagebox.showerror("Error", "Failed to download or set the application's icon.")
 
     def check_ffmpeg(self):
         ffmpeg_path = os.path.join(os.path.dirname(__file__), "ffmpeg.exe")
