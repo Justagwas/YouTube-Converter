@@ -1,3 +1,5 @@
+# This repo is deprecated, please use [Media Downloader](https://github.com/Justagwas/Media-Downloader), Which is a better version of this.
+
 # YouTube Downloader/Converter v4.1.0
 
 A user-friendly Python application to convert and download YouTube videos or audio directly from their URL.
